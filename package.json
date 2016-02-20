@@ -15,6 +15,10 @@
   ],
   "author": "Evan Hahn <me@evanhahn.com> (http://evanhahn.com)",
   "license": "Unlicense",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/EvanHahn/untouched.git"
+  },
   "devDependencies": {
     "jasmine-core": "^2.4.1",
     "karma": "^0.13.21",
