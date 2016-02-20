@@ -19,6 +19,7 @@
     "type": "git",
     "url": "git://github.com/EvanHahn/untouched.git"
   },
+  "bugs": "https://github.com/EvanHahn/untouched/issues",
   "devDependencies": {
     "jasmine-core": "^2.4.1",
     "karma": "^0.13.21",
