@@ -14,7 +14,7 @@ describe('Untouched', function () {
 
     JSON.foo = 'dope'
     JSON.stringify = function () {
-      return 'haha nope'
+      return 'haha dope'
     }
   })
 
@@ -58,7 +58,7 @@ describe('Untouched', function () {
     expect(new UntouchedArray().foo).toBeUndefined()
   })
 
-  it('uses Array methods that are not monkeypatched', function () {
+  it('uses un-monkeypatched Array methods', function () {
     function square (n) {
       return n * n
     }
@@ -68,5 +68,27 @@ describe('Untouched', function () {
     var UntouchedArray = this.untouched('Array')
     var arr = new UntouchedArray(1, 2, 3)
     expect(arr.map(square)).toEqual([1, 4, 9])
+  })
+
+  it('can use the JSON object just fine', function () {
+    var untouchedJson = this.untouched('JSON')
+
+    expect(untouchedJson.parse('{}')).toEqual({})
+    expect(untouchedJson.parse('{"hi": 5}')).toEqual({ hi: 5 })
+
+    expect(untouchedJson.stringify({})).toEqual('{}')
+    expect(untouchedJson.stringify({ hi: 5 })).toEqual('{"hi":5}')
+  })
+
+  it('ignores properties added to the JSON object', function () {
+    expect(JSON.foo).toEqual('dope')
+
+    expect(this.untouched('JSON').foo).toBeUndefined()
+  })
+
+  it('uses un-monkeypatched JSON methods', function () {
+    expect(JSON.stringify({ hi: 5 })).toEqual('haha dope')
+
+    expect(this.untouched('JSON').stringify({ hi: 5 })).toEqual('{"hi":5}')
   })
 })
