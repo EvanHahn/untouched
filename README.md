@@ -27,6 +27,14 @@ var untouchedArr = new myUntouched('Array')(1, 2, 3)
 untouchedArr.map(function (n) {
   return * n
 })
+
+// You can use it for things other than Array, too.
+var untouchedJson = myUntouched('JSON')
+untouchedJson.stringify({ hi: 5 })
 ```
 
-We accomplish this by creating a hidden `<iframe>` and pulling variables out of it.
+We accomplish this by creating a hidden `<iframe>` and pulling variables out of it. You can remove the iframe whenever you're done with it:
+
+```js
+myUntouched.destroy()
+```
