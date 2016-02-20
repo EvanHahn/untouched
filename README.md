@@ -5,6 +5,25 @@ Get pristine copies of built-in objects (like `Array` or `JSON`), even if they'v
 
 *Currently only made for browsers. Feel free to submit a Node patch with the `vm` module!*
 
+To use with Browserify or Webpack:
+
+```js
+var untouched = require('untouched')
+
+var myUntouched = untouched()
+var untouchedJson = myUntouched('json')
+```
+
+You can also include the script tag on the page (grab it from `src/untouched.js`):
+
+```html
+<script src="untouched.js"></script>
+<script>
+var myUntouched = untouched()
+var untouchedJson = myUntouched('json')
+</script>
+```
+
 Here's an example:
 
 ```js
