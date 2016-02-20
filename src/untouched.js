@@ -1,4 +1,4 @@
-void function () {
+;(function () {
   function untouched () {
     var iframe = document.createElement('iframe')
     iframe.style.display = 'none'
@@ -20,4 +20,4 @@ void function () {
   } else {
     module.exports = untouched
   }
-}()
+})()

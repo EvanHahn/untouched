@@ -1,4 +1,5 @@
 describe('Untouched', function () {
+  /* eslint-disable no-extend-native */
   beforeEach(function () {
     this.untouched = untouched()
 
@@ -27,6 +28,7 @@ describe('Untouched', function () {
     delete JSON.foo
     JSON.stringify = this.originalJsonStringify
   })
+  /* eslint-enable no-extend-native */
 
   it('returns a different Array object', function () {
     expect(this.untouched('Array')).not.toBe(Array)
