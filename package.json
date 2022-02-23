@@ -21,12 +21,12 @@
   },
   "bugs": "https://github.com/EvanHahn/untouched/issues",
   "devDependencies": {
-    "jasmine-core": "^2.4.1",
-    "karma": "^0.13.21",
-    "karma-jasmine": "^0.3.7",
-    "karma-phantomjs-launcher": "^1.0.0",
-    "phantomjs-prebuilt": "^2.1.4",
-    "standard": "^6.0.7"
+    "jasmine-core": "^4.0.1",
+    "karma": "^6.3.16",
+    "karma-jasmine": "^4.0.1",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "phantomjs-prebuilt": "^2.1.16",
+    "standard": "^6.0.8"
   },
   "standard": {
     "global": [
