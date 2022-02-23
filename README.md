@@ -44,7 +44,7 @@ arr.map(function (n) {
 var myUntouched = untouched()
 var untouchedArr = new myUntouched('Array')(1, 2, 3)
 untouchedArr.map(function (n) {
-  return * n
+  return n * n
 })
 
 // You can use it for things other than Array, too.
