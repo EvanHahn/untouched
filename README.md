@@ -2,7 +2,7 @@
 
 Get pristine copies of built-in objects (like `Array` or `JSON`), even if they've been modified. This is generally for library authors who find themselves in monkey-patched browser environments.
 
-_Currently only made for browsers. Feel free to submit a Node patch with the `vm` module!_
+_Currently only made for browsers. Feel free to submit a patch!_
 
 To use with Browserify or Webpack:
 
