@@ -9,7 +9,7 @@
     "lint:prettier": "prettier --check .",
     "lint:eslint": "eslint .",
     "format": "prettier --write .",
-    "test": "./node_modules/karma/bin/karma start --single-run"
+    "test": "node test/index.js"
   },
   "keywords": [
     "untouched",
@@ -26,11 +26,7 @@
   "bugs": "https://github.com/EvanHahn/untouched/issues",
   "devDependencies": {
     "eslint": "^8.39.0",
-    "jasmine-core": "^4.5.0",
-    "karma": "^6.4.1",
-    "karma-jasmine": "^5.1.0",
-    "karma-phantomjs-launcher": "^1.0.4",
-    "phantomjs-prebuilt": "^2.1.16",
-    "prettier": "^2.8.8"
+    "prettier": "^2.8.8",
+    "puppeteer": "^20.4.0"
   }
 }
