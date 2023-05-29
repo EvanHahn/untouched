@@ -4,13 +4,13 @@ Get pristine copies of built-in objects (like `Array` or `JSON`), even if they'v
 
 _Currently only made for browsers. Feel free to submit a patch!_
 
-To use with Browserify or Webpack:
+Usage:
 
 ```js
-var untouched = require("untouched");
+const untouched = require("untouched");
 
-var myUntouched = untouched();
-var untouchedJson = myUntouched("json");
+const myUntouched = untouched();
+const untouchedJson = myUntouched("JSON");
 ```
 
 You can also include the script tag on the page (grab it from `src/untouched.js`):
@@ -18,8 +18,8 @@ You can also include the script tag on the page (grab it from `src/untouched.js`
 ```html
 <script src="untouched.js"></script>
 <script>
-  var myUntouched = untouched();
-  var untouchedJson = myUntouched("json");
+  const myUntouched = untouched();
+  const untouchedJson = myUntouched("JSON");
 </script>
 ```
 
@@ -28,26 +28,20 @@ Here's an example:
 ```js
 // Let's say that someone has messed with the Array prototype.
 // If you try to use it, you're screwed!
-Array.prototype.map = function () {
-  return "this no longer works";
-};
+Array.prototype.map = () => "this no longer works";
 
 // This will return 'this no longer works'!
-var arr = [1, 2, 3];
-arr.map(function (n) {
-  return n * n;
-});
+const arr = [1, 2, 3];
+arr.map(() => n * n);
 
 // With untouched, you can get around this problem.
 // This returns what you expect!
-var myUntouched = untouched();
-var untouchedArr = new myUntouched("Array")(1, 2, 3);
-untouchedArr.map(function (n) {
-  return n * n;
-});
+const myUntouched = untouched();
+const untouchedArr = new myUntouched("Array")(1, 2, 3);
+untouchedArr.map(() => n * n);
 
 // You can use it for things other than Array, too.
-var untouchedJson = myUntouched("JSON");
+const untouchedJson = myUntouched("JSON");
 untouchedJson.stringify({ hi: 5 });
 ```
 
