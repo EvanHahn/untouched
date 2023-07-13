@@ -2,7 +2,7 @@
   "name": "untouched",
   "version": "0.1.0",
   "description": "get pristine copies of built-in objects (like Array or JSON) even if they've been modified",
-  "main": "src/untouched.js",
+  "main": "untouched.js",
   "scripts": {
     "pretest": "npm run lint",
     "lint": "npm run lint:prettier && npm run lint:eslint",
