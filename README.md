@@ -7,20 +7,10 @@ _Currently only made for browsers. Feel free to submit a patch!_
 Usage:
 
 ```js
-const untouched = require("untouched");
+import untouched from "untouched";
 
 const myUntouched = untouched();
 const untouchedJson = myUntouched("JSON");
-```
-
-You can also include the script tag on the page (grab it from `src/untouched.js`):
-
-```html
-<script src="untouched.js"></script>
-<script>
-  const myUntouched = untouched();
-  const untouchedJson = myUntouched("JSON");
-</script>
 ```
 
 Here's an example:
