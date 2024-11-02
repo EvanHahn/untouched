@@ -10,7 +10,7 @@
     "lint:prettier": "prettier --check .",
     "lint:eslint": "eslint .",
     "format": "prettier --write .",
-    "test": "node test/index.js"
+    "test": "node --test test/index.js"
   },
   "keywords": [
     "untouched",
