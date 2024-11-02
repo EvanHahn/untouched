@@ -1,25 +1,46 @@
-const puppeteer = require("puppeteer");
-const path = require("path");
-const { pathToFileURL } = require("url");
+import test from "node:test";
+import * as puppeteer from "puppeteer";
+import * as http from "node:http";
+import serveStatic from "serve-static";
 
-async function main() {
-  const browser = await puppeteer.launch({ headless: "new" });
+test("untouched", async (t) => {
+  const browser = await puppeteer.launch();
+  t.after(() => browser.close());
+
+  const server = await startTestServer();
+  t.after(() => closeTestServer(server));
+
   const page = await browser.newPage();
 
-  const testPagePath = path.join(__dirname, "test.html");
-  await page.goto(pathToFileURL(testPagePath));
+  const { port } = server.address();
+  await page.goto(`http://localhost:${port}/test.html`);
 
-  const resultEl = await page.waitForSelector("#result", { timeout: 5000 });
-  const result = await resultEl?.evaluate((el) => el.textContent);
+  await page.evaluate(() => window.runTests());
+});
 
-  await browser.close();
-
-  if (result !== "ok") {
-    throw new Error(result);
-  }
+function startTestServer() {
+  return new Promise((resolve) => {
+    const serve = serveStatic("test");
+    const server = http.createServer((req, res) => {
+      serve(req, res, () => {
+        res.end();
+      });
+    });
+    server.unref();
+    server.listen(() => {
+      resolve(server);
+    });
+  });
 }
 
-main().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+function closeTestServer(server) {
+  return new Promise((resolve, reject) => {
+    server.close((err) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve();
+      }
+    });
+  });
+}

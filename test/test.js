@@ -1,4 +1,4 @@
-/* global untouched */
+import untouched from "./untouched.js";
 
 function assert(condition, message) {
   if (!condition) {
@@ -6,7 +6,7 @@ function assert(condition, message) {
   }
 }
 
-function runTests() {
+window.runTests = () => {
   /* eslint-disable no-extend-native */
   Array.prototype.foo = () => "boo";
   Array.prototype.map = () => "wow";
@@ -33,18 +33,4 @@ function runTests() {
   );
 
   ut.destroy();
-}
-
-function main() {
-  const resultEl = document.createElement("div");
-  resultEl.id = "result";
-  try {
-    runTests();
-    resultEl.innerText = "ok";
-  } catch (err) {
-    resultEl.innerText = err.message;
-  }
-  document.body.append(resultEl);
-}
-
-main();
+};
