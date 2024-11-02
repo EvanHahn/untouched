@@ -7,10 +7,8 @@ function assert(condition, message) {
 }
 
 window.runTests = () => {
-  /* eslint-disable no-extend-native */
   Array.prototype.foo = () => "boo";
   Array.prototype.map = () => "wow";
-  /* eslint-enable no-extend-native */
 
   assert([].foo() === "boo", "test extends Array to add `foo`");
   assert([].map() === "wow", "test extends Array to change `map``");
