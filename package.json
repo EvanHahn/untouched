@@ -22,9 +22,9 @@
   "license": "Unlicense",
   "repository": {
     "type": "git",
-    "url": "git://github.com/EvanHahn/untouched.git"
+    "url": "https://codeberg.org/EvanHahn/untouched.git"
   },
-  "bugs": "https://github.com/EvanHahn/untouched/issues",
+  "bugs": "https://codeberg.org/EvanHahn/untouched/issues",
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "eslint": "^10.6.0",
